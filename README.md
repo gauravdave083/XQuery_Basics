@@ -83,4 +83,3 @@ xquery-basics/
 **This repository is for learning purposes only. Feel free to fork and use for your assignments!**
 
 📌 *Happy Learning!*
-# XQuery_Basics
