@@ -1,0 +1,111 @@
+
+What is XQuery?
+
+|---> XQuery is to XML what SQL is to databases.
+|---> XQuery is designed to query XML data.
+|---> XQuery is built on XPath expressions
+|---> XQuery is supported by all major databases
+
+
+Example: 
+
+for $x in doc("books.xml")/bookstore/book
+where $x/price>30
+order by $x/title
+return $x/title
+
+
+XQuery can be used to:
+|
+|---> Extract information to use in a Web Service
+|---> Generate summary reports
+|---> Transform XML data to XHTML
+|---> Search Web documents for relevant information
+
+
+
+
+XML Example Code:
+
+The XML Example Document
+We will use the following XML document in the examples below.
+
+"books.xml":
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bookstore>
+
+<book category="COOKING">
+  <title lang="en">Everyday Italian</title>
+  <author>Giada De Laurentiis</author>
+  <year>2005</year>
+  <price>30.00</price>
+</book>
+
+<book category="CHILDREN">
+  <title lang="en">Harry Potter</title>
+  <author>J K. Rowling</author>
+  <year>2005</year>
+  <price>29.99</price>
+</book>
+
+<book category="WEB">
+  <title lang="en">XQuery Kick Start</title>
+  <author>James McGovern</author>
+  <author>Per Bothner</author>
+  <author>Kurt Cagle</author>
+  <author>James Linn</author>
+  <author>Vaidyanathan Nagarajan</author>
+  <year>2003</year>
+  <price>49.99</price>
+</book>
+
+<book category="WEB">
+  <title lang="en">Learning XML</title>
+  <author>Erik T. Ray</author>
+  <year>2003</year>
+  <price>39.95</price>
+</book>
+
+</bookstore>
+
+
+
+How to Select Nodes From "books.xml"?
+|
+|-----> Functions
+|                XQuery uses functions to extract data from XML documents.
+|                The doc() function is used to open the "books.xml" file:
+|
+|                doc("books.xml")
+|
+|-----> Path Expressions
+|                XQuery uses path expressions to navigate through elements in an XML document.
+|                The following path expression is used to select all the title elements in the "books.xml" file:
+|              
+|                doc("books.xml")/bookstore/book/title
+|
+|                The XQuery above will extract the following:
+|
+|                <title lang="en">Everyday Italian</title>
+|                <title lang="en">Harry Potter</title>
+|                <title lang="en">XQuery Kick Start</title>
+|                <title lang="en">Learning XML</title>
+|
+|-----> Predicates
+|                XQuery uses predicates to limit the extracted data from XML documents.
+|
+|                The following predicate is used to select all the book elements under the bookstore element that have a 
+|                price element with a value that is less than 30:
+|
+|                doc("books.xml")/bookstore/book[price<30]
+|
+|                The XQuery above will extract the following:
+|                
+|                <book category="CHILDREN">
+|                <title lang="en">Harry Potter</title>
+|                <author>J K. Rowling</author>
+|                <year>2005</year>
+|                <price>29.99</price>
+|                </book>
